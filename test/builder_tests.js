@@ -2,7 +2,7 @@
 var path = require('path'),
   assert = require('assert');
 
-describe("parser-test", function () {
+describe("builder-test", function () {
 
   before('it sets up the dependencies', function (callback) {
 
@@ -14,7 +14,7 @@ describe("parser-test", function () {
         "node": "0.10",
         "owner": "happner",
         "repo": "happner-2",
-        "branch": "master",
+        "branch": "master"
       },
       "aggregated": {
         "files": 62,
@@ -88,11 +88,20 @@ describe("parser-test", function () {
       .withRepoName(self.__testMessage.context.repo)
       .withSuiteName(currentSuite.suite)
       .withTestName(currentTest.test.title)
+      .withDuration(currentTest.test.duration)
       .build();
 
     assert.equal(singleTestMessage.name, 'repo.happner-2.0-endpoint-service.requires and initializes the endpoint service, config with no endpoints');
+    assert.equal(singleTestMessage.value, 18);
 
     callback();
   });
+
+  /*
+  TODO:
+  1 - check for: periods, colons, pipes
+  2 -
+   */
+
 
 });
