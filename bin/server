@@ -1,12 +1,9 @@
 #!/usr/bin/env node
 
-var run = require('../lib/client');
 var Happner = require('happner-2');
 var config = require('../config/server');
 
 Happner.create(config)
-
-  .then(run)
 
   .catch(function (error) {
     console.error(error);

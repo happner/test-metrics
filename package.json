@@ -20,6 +20,7 @@
     "mocha": "^3.2.0"
   },
   "dependencies": {
+    "happn-service-mongo-2": "0.0.2",
     "happner-2": "^1.7.1"
   }
 }
