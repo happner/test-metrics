@@ -6,11 +6,11 @@ var client = require('../');
 
 var login = {
   username: '_ADMIN',
-  password: 'happn',
-  url: 'https://localhost:55000'
+  password: process.env.PASSWORD || 'happn',
+  hostname: process.env.HOSTNAME || 'localhost'
 };
 
-var data = {};
+var data = {}; // TODO: load sample file
 
 client(login, data, function (e) {
 

@@ -5,8 +5,8 @@ module.exports = {
   happn: {
     secure: true,
     services: {
-      transport:{
-        config:{
+      transport: {
+        config: {
           mode: 'https',
           certPath: __dirname + '/../server.cert',
           keyPath: __dirname + '/../server.key'
@@ -37,9 +37,7 @@ module.exports = {
   },
 
   components: {
-    'metrics': {
-
-    }
+    'metrics': {}
   }
 
 };
