@@ -1,0 +1,19 @@
+#!/usr/bin/env node
+
+// EXAMPLE USAGE
+
+var client = require('../');
+
+var login = {
+  username: '_ADMIN',
+  password: 'happn',
+  url: 'https://localhost:55000'
+};
+
+var data = {};
+
+client(login, data, function (e) {
+
+  if (e) return console.log('error', e)
+
+});
