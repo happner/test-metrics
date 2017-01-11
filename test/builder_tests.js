@@ -2,12 +2,12 @@
 var path = require('path'),
   assert = require('assert');
 
-describe("parser-test", function () {
+describe("builder-test", function () {
 
   before('it sets up the dependencies', function (callback) {
 
     var MessageBuilder = require('../lib/builders/message_builder');
-    this.__builder = new MessageBuilder();
+    this.__parser = new MessageBuilder();
 
     this.__testMessage = {
       "context": {
@@ -83,7 +83,7 @@ describe("parser-test", function () {
     var currentSuite = this.__testMessage.detail['/usr/src/app/test/0-endpoints-service.js'].results.suites[0];
     var currentTest = currentSuite.tests[0];
 
-    var singleTestMessage = self.__builder
+    var singleTestMessage = self.__parser
       .withContextName('repo')
       .withRepoName(self.__testMessage.context.repo)
       .withSuiteName(currentSuite.suite)
@@ -94,5 +94,12 @@ describe("parser-test", function () {
 
     callback();
   });
+
+  /*
+  TODO:
+  1 - check for: periods, colons, pipes
+  2 -
+   */
+
 
 });
