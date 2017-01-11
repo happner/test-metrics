@@ -88,9 +88,11 @@ describe("builder-test", function () {
       .withRepoName(self.__testMessage.context.repo)
       .withSuiteName(currentSuite.suite)
       .withTestName(currentTest.test.title)
+      .withDuration(currentTest.test.duration)
       .build();
 
     assert.equal(singleTestMessage.name, 'repo.happner-2.0-endpoint-service.requires and initializes the endpoint service, config with no endpoints');
+    assert.equal(singleTestMessage.value, 18);
 
     callback();
   });
