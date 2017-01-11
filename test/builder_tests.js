@@ -7,14 +7,14 @@ describe("builder-test", function () {
   before('it sets up the dependencies', function (callback) {
 
     var MessageBuilder = require('../lib/builders/message_builder');
-    this.__parser = new MessageBuilder();
+    this.__builder = new MessageBuilder();
 
     this.__testMessage = {
       "context": {
         "node": "0.10",
         "owner": "happner",
         "repo": "happner-2",
-        "branch": "master",
+        "branch": "master"
       },
       "aggregated": {
         "files": 62,
@@ -83,7 +83,7 @@ describe("builder-test", function () {
     var currentSuite = this.__testMessage.detail['/usr/src/app/test/0-endpoints-service.js'].results.suites[0];
     var currentTest = currentSuite.tests[0];
 
-    var singleTestMessage = self.__parser
+    var singleTestMessage = self.__builder
       .withContextName('repo')
       .withRepoName(self.__testMessage.context.repo)
       .withSuiteName(currentSuite.suite)
