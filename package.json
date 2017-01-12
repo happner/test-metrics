@@ -4,7 +4,7 @@
   "description": "Store and relay test metrics from tracy to statsd. Edit",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test"
+    "test": "mocha test/unit/*"
   },
   "repository": {
     "type": "git",
