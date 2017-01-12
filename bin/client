@@ -2,6 +2,7 @@
 
 // EXAMPLE USAGE
 
+// var client = require('test-metrics');
 var client = require('../');
 
 var login = {
@@ -10,7 +11,7 @@ var login = {
   hostname: process.env.HOSTNAME || 'localhost'
 };
 
-var data = {}; // TODO: load sample file
+var data = require('../docs/tracey-sample.json');
 
 client(login, data, function (e) {
 
