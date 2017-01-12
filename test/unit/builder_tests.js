@@ -6,7 +6,7 @@ describe("builder-test", function () {
 
   before('it sets up the dependencies', function (callback) {
 
-    var MessageBuilder = require('../lib/builders/message_builder');
+    var MessageBuilder = require('../../lib/builders/message_builder');
     this.__builder = new MessageBuilder();
 
     this.__testMessage = {
@@ -84,6 +84,7 @@ describe("builder-test", function () {
     var currentTest = currentSuite.tests[0];
 
     var singleTestMessage = self.__builder
+      .withStatus('passed')
       .withContextName('repo')
       .withRepoName(self.__testMessage.context.repo)
       .withSuiteName(currentSuite.suite)
@@ -91,7 +92,7 @@ describe("builder-test", function () {
       .withDuration(currentTest.test.duration)
       .build();
 
-    assert.equal(singleTestMessage.name, 'repo.happner-2.0-endpoint-service.requires and initializes the endpoint service, config with no endpoints');
+    assert.equal(singleTestMessage.name, 'repo.happner-2.results.0-endpoint-service.requires and initializes the endpoint service, config with no endpoints');
     assert.equal(singleTestMessage.value, 18);
 
     callback();
