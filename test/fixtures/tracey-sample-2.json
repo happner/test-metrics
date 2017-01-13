@@ -1,0 +1,104 @@
+{
+  "aggregated": {
+    "files": 1,
+    "suites": 1,
+    "failed": {
+      "mock tests": [
+        {
+          "title": "times out",
+          "reason": "timeout of 300ms exceeded. Ensure the done() callback is being called in this test."
+        }
+      ]
+    },
+    "tests": {
+      "count": 3,
+      "statuses": {
+        "passed": 2,
+        "failed": 1
+      }
+    },
+    "prepared": true,
+    "duration": 1333
+  },
+  "detail": {
+    "/usr/src/app/test/func.js": {
+      "task": "/usr/src/app/test/func.js",
+      "success": true,
+      "results": {
+        "file": null,
+        "suites": []
+      },
+      "duration": 153
+    },
+    "/usr/src/app/test/mock.js": {
+      "task": "/usr/src/app/test/mock.js",
+      "success": true,
+      "results": {
+        "file": "/usr/src/app/test/mock.js",
+        "suites": [
+          {
+            "suite": "mock tests",
+            "suites": [],
+            "tests": [
+              {
+                "test": {
+                  "title": "succeeds",
+                  "async": 1,
+                  "sync": false,
+                  "timedOut": false,
+                  "pending": false,
+                  "type": "test",
+                  "file": "/usr/src/app/test/mock.js",
+                  "duration": 2,
+                  "status": "passed"
+                },
+                "error": null
+              },
+              {
+                "test": {
+                  "title": "fails",
+                  "async": 1,
+                  "sync": false,
+                  "timedOut": false,
+                  "pending": false,
+                  "type": "test",
+                  "file": "/usr/src/app/test/mock.js",
+                  "duration": 0,
+                  "status": "passed"
+                },
+                "error": null
+              },
+              {
+                "test": {
+                  "title": "times out",
+                  "async": 1,
+                  "sync": false,
+                  "timedOut": false,
+                  "pending": false,
+                  "type": "test",
+                  "file": "/usr/src/app/test/mock.js",
+                  "duration": 301,
+                  "status": "failed"
+                },
+                "error": "timeout of 300ms exceeded. Ensure the done() callback is being called in this test."
+              }
+            ]
+          }
+        ]
+      },
+      "duration": 491
+    },
+    "/usr/src/app/test/unit.js": {
+      "task": "/usr/src/app/test/unit.js",
+      "success": true,
+      "results": {},
+      "duration": 661
+    }
+  },
+  "context": {
+    "node": "7",
+    "owner": "happner",
+    "repo": "tracey",
+    "branch": "master"
+  }
+}

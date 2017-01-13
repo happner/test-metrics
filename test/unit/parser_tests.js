@@ -30,7 +30,15 @@ describe("parser-test", function () {
 
           self.__singleTestIllegalCharsData = JSON.parse(data);
 
-          callback();
+          fs.readFile(path.join(__dirname, '..', path.sep, 'fixtures', path.sep, 'tracey-sample-2.json'), 'utf8', function (err, data) {
+            if (err)
+              return callback(err);
+
+            self.__testData2 = JSON.parse(data);
+
+            callback();
+
+          });
         });
       });
     });
@@ -70,6 +78,18 @@ describe("parser-test", function () {
 
     assert.equal(parsedResult[0].value, this.__testData.aggregated.tests.statuses.failed);
     assert.equal(parsedResult.length, this.__testData.aggregated.tests.count + 1);
+
+    callback();
+  });
+
+  it('can successfully parse a message', function (callback) {
+
+    var parsedResult = this.__parser.parse(this.__testData2);
+
+    console.log(JSON.stringify(parsedResult));
+
+    assert.equal(parsedResult[0].value, this.__testData2.aggregated.tests.statuses.failed);
+    assert.equal(parsedResult.length, this.__testData2.aggregated.tests.count + 1);
 
     callback();
   });
