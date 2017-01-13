@@ -3,6 +3,7 @@
     "node":"0.10",
     "owner":"happner",
     "repo":"happner-2",
+    "version": "2.7.9",
     "branch":"master"
   },
   "aggregated": {
