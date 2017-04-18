@@ -104,4 +104,18 @@ describe("parser-test", function () {
     callback();
   });
 
+  it('can successfully parse a message and build path from nested suites', function (callback) {
+
+    var parsedResult = this.__parser.parse(this.__testData);
+
+    // see tracey-sample.json line 403 for test nested in a suite 2 layers deep
+    var foundResult = parsedResult.filter(function (item) {
+      return item.name == 'repo.happner-2.results.node_version_0.4 - Mesh to Mesh.on remote mesh.can call remote component function and subscribe to event'
+    });
+
+    assert.equal(foundResult.length, 1);
+
+    callback();
+  });
+
 });
