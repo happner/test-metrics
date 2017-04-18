@@ -1,4 +1,3 @@
-
 var path = require('path'),
   assert = require('assert');
 
@@ -83,25 +82,28 @@ describe("builder-test", function () {
     var currentSuite = this.__testMessage.detail['/usr/src/app/test/0-endpoints-service.js'].results.suites[0];
     var currentTest = currentSuite.tests[0];
 
+    var nodeVersion = 'node_version_' + self.__testMessage.context.node.substr(0, self.__testMessage.context.node.indexOf('.'));
+
     var singleTestMessage = self.__builder
       .withStatus('passed')
       .withContextName('repo')
       .withRepoName(self.__testMessage.context.repo)
+      .withNodeVersion(nodeVersion)
       .withSuiteName(currentSuite.suite)
       .withTestName(currentTest.test.title)
       .withDuration(currentTest.test.duration)
       .build();
 
-    assert.equal(singleTestMessage.name, 'repo.happner-2.results.0-endpoint-service.requires and initializes the endpoint service, config with no endpoints');
+    assert.equal(singleTestMessage.name, 'repo.happner-2.results.node_version_0.0-endpoint-service.requires and initializes the endpoint service, config with no endpoints');
     assert.equal(singleTestMessage.value, 18);
 
     callback();
   });
 
   /*
-  TODO:
-  1 - check for: periods, colons, pipes
-  2 -
+   TODO:
+   1 - check for: periods, colons, pipes
+   2 -
    */
 
 
