@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "happn-service-mongo-2": "0.0.2",
-    "happner-2": "^1.7.1",
+    "happner-2": "^3.0.1",
     "node-statsd": "^0.1.1"
   }
 }
