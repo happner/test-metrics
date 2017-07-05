@@ -1,0 +1,8 @@
+apps:
+  - script: bin/server
+    name: test-metrics
+    instances: 1
+    env:
+      ADMIN_PASSWORD: ***
+      MONGO_COLLECTION: test-metrics
+      MONGO_DATABASE: test-metrics
