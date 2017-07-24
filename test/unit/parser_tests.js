@@ -30,7 +30,7 @@ describe("parser-test", function () {
 
           self.__singleTestIllegalCharsData = JSON.parse(data);
 
-          fs.readFile(path.join(__dirname, '..', path.sep, 'fixtures', path.sep, 'tracey-sample-2.json'), 'utf8', function (err, data) {
+          fs.readFile(path.join(__dirname, '..', path.sep, 'fixtures', path.sep, 'tracey-sample-with-host-os.json'), 'utf8', function (err, data) {
             if (err)
               return callback(err);
 
@@ -52,7 +52,7 @@ describe("parser-test", function () {
 
     console.log(JSON.stringify(parsedResult));
 
-    assert.equal(parsedResult[1].name, 'repo.happner-2.results.node_version_0.0-endpoint-service.requires and initializes the endpoint service, config with no endpoints');
+    assert.equal(parsedResult[1].name, 'repo.happner-2.unknown_host.results.node_version_0.0-endpoint-service.requires and initializes the endpoint service, config with no endpoints');
     assert.equal(parsedResult[1].value, 18);
 
     callback();
@@ -64,7 +64,7 @@ describe("parser-test", function () {
 
     var parsedResult = this.__parser.parse(this.__singleTestIllegalCharsData);
 
-    assert.equal(parsedResult[0].name, 'repo.happner-2.results.node_version_0.0-endpoint-service.requires and __ initializes the endpoint service __ config with no endpoints __');
+    assert.equal(parsedResult[0].name, 'repo.happner-2.unknown_host.results.node_version_0.0-endpoint-service.requires and __ initializes the endpoint service __ config with no endpoints __');
     assert.equal(parsedResult[0].value, 18);
 
     console.log(JSON.stringify(parsedResult));
@@ -86,10 +86,9 @@ describe("parser-test", function () {
 
     var parsedResult = this.__parser.parse(this.__testData2);
 
-    assert.equal(parsedResult[0].value, this.__testData2.aggregated.tests.statuses.failed);
-    assert.equal(parsedResult[1].name, 'repo.tracey.results.node_version_7.mock tests.succeeds');
-    assert.equal(parsedResult[1].value, this.__testData2.aggregated.tests.statuses.passed);
-    assert.equal(parsedResult.length, this.__testData2.aggregated.tests.count + 1);
+    assert.equal(parsedResult[1].name, 'repo.happn.MacBook-Air_darwin_x64.results.node_version_7.0_startup__js.default startup time');
+    assert.equal(parsedResult[1].value, 54);
+    assert.equal(parsedResult.length, this.__testData2.aggregated.tests.count);
 
     callback();
   });
@@ -98,8 +97,8 @@ describe("parser-test", function () {
 
     var parsedResult = this.__parser.parse(this.__testData2);
 
-    assert.equal(parsedResult[1].name, 'repo.tracey.results.node_version_7.mock tests.succeeds');
-    assert.equal(parsedResult.length, this.__testData2.aggregated.tests.count + 1);
+    assert.equal(parsedResult[1].name, 'repo.happn.MacBook-Air_darwin_x64.results.node_version_7.0_startup__js.default startup time');
+    assert.equal(parsedResult.length, this.__testData2.aggregated.tests.count);
 
     callback();
   });
@@ -110,7 +109,7 @@ describe("parser-test", function () {
 
     // see tracey-sample.json line 403 for test nested in a suite 2 layers deep
     var foundResult = parsedResult.filter(function (item) {
-      return item.name == 'repo.happner-2.results.node_version_0.4 - Mesh to Mesh.on remote mesh.can call remote component function and subscribe to event'
+      return item.name == 'repo.happner-2.unknown_host.results.node_version_0.4 - Mesh to Mesh.on remote mesh.can call remote component function and subscribe to event'
     });
 
     assert.equal(foundResult.length, 1);
